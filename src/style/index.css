@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Manrope:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bakbak+One&family=Manrope:wght@200&display=swap');
+
+.nav_container {
+    max-width: 100%;
+    height: 154px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.d_f_j_a {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+.logo_style {
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 56px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.logo_style:focus {
+    color: black;
+}
+
+.logo_style:hover {
+    color: black;
+}
+
+.routes_style {
+    width: 72.85px;
+    height: 41px;
+    left: 607.28px;
+    top: 62px;
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 41px;
+    color: #000000;
+}
+
+.b_flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 604px;
+}
+
+.nav_bar_icons_d {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 184px;
+}
+
+.profile {
+    width: 46px;
+    height: 46px;
+}
+
+.search_and_cart {
+    width: 38px;
+    height: 38px;
+}
+
+.ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    list-style: none;
+    text-decoration: none;
+    align-items: center;
+}
+
+.mt_10 {
+    margin-top: 10px;
+}
+
+.shop_button {
+    position: absolute;
+    width: 404px;
+    height: 106px;
+    left: 109px;
+    top: 756px;
+
+    background: #000000;
+    border-radius: 40px;
+}
+
+.btn_text {
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 70px;
+    color: #FFFFFF;
+}
+
+.main_p_text {
+    position: absolute;
+    width: 617px;
+    height: 525px;
+    left: 68px;
+    top: 197px;
+
+    font-family: 'Alfa Slab One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 128px;
+    line-height: 175px;
+    color: #000000;
+}
+
+/*//PRODUCT*/
+/*150 × 209 pixels*/
+.product_main {
+    height: 300px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+/*TeamPage*/
+.c_container{
+    width: 100%;
+}
+.team_text_box {
+    position: absolute;
+    width: 750px;
+    height: 337px;
+    left: 430px;
+    top: 524px;
+    background: rgba(0, 0, 0, 0.33);
+    text-align: center;
+    justify-content: center;
+}
+
+.team_text {
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 50px;
+    color: #FFFFFF;
+}
+
+/*AUTH*/
+#bg_auth {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.auth_form{
+    position: absolute;
+    width: 607px;
+    height: 569px;
+    left: 447px;
+    top: 222px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.auth_input{
+    width: 558px;
+    height: 64px;
+    background: #D9D9D9;
+    border-radius: 25px;
+}
+.auth_form_input{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.auth_font_1{
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 90px;
+    color: #000000;
+}
+.auth_font_2{
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 45px;
+    color: #000000;
+}
+
+/*CART*/
+.cart_top {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cart_1 {
+    display: flex;
+    align-items: center;
+}
+
+.max_w {
+    width: 200px;
+}
+.cart_font_1{
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 42px;
+    color: #000000;
+}
+.cart_font_2{
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 56px;
+    color: #000000;
+}
+.cart_font_3{
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 42px;
+    color: #000000;
+}
+.cart_font_4{
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 42px;
+    color: rgba(0, 0, 0, 0.5);
+}
+.cart_font_5{
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 35px;
+    color: #000000;
+}
+.cart_font_6{
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 35px;
+    color: rgba(0, 0, 0, 0.5);
+}
+.buy_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right:10%;
+}
+
+.buy_div_1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buy_btn{
+    display: flex;
+    flex-direction: column;
+}
+.bnt_style{
+    width: 440px;
+    height: 80px;
+    background: #000000;
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 50px;
+    color: #FFFFFF;
+}
