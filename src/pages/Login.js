@@ -17,6 +17,9 @@ export const Login = () => {
                         <span className='auth_font_2'>password</span>
                         <input className='auth_input'/>
                     </div>
+                    <div className='auth_btn'>
+                    <button className='sh_bnt_style btn_radius' >LOG IN</button>
+                    </div>
                 </div>
             </div>
         </div>

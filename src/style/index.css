@@ -136,6 +136,17 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
+.sh_bnt_style{
+    width: 259px;
+    height: 80px;
+    background: #000000;
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 50px;
+    color: #FFFFFF;
+}
 
 
 /*TeamPage*/
@@ -205,6 +216,15 @@
     font-size: 32px;
     line-height: 45px;
     color: #000000;
+}
+
+.auth_btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+.btn_radius{
+    border-radius: 25px;
 }
 
 /*CART*/
