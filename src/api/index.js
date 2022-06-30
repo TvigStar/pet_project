@@ -1,3 +1,6 @@
-import { auth } from './drivers/auth.driver'
+import './axios.config'
 
-export const Api = { auth }
+import { auth } from './drivers/auth.driver'
+import { cart } from "./drivers/cart.driver";
+
+export const Api = { auth, cart }

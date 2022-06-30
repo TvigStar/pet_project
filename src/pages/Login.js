@@ -1,21 +1,31 @@
 import background from '../content/auth.svg'
-import {useDispatch} from "react-redux";
-import {useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export const Login = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const {
+        loggedIn,
+        loading,
+        errorText
+    } = useSelector(({ auth }) => auth);
 
     const handleLogin = () => {
-        dispatch({type: "SIGN_IN", payload: {email, password}})
+        dispatch({ type: "SIGN_IN_REQUEST", payload: { email, password } })
     }
-    // useSelector
 
-    return(
+    if (loggedIn) {
+        navigate('/shop');
+    }
+
+    return (
         <div>
             <div>
-                <img src={background} alt='background' id="bg_auth" />
+                <img src={background} alt='background' id="bg_auth"/>
             </div>
 
             <div className='auth_form'>
@@ -27,10 +37,14 @@ export const Login = () => {
                     </div>
                     <div className='auth_form_input'>
                         <span className='auth_font_2'>password</span>
-                        <input className='auth_input' defaultValue={password} onBlur={(e) => setPassword(e.target.value)}/>
+                        <input className='auth_input' defaultValue={password}
+                               onBlur={(e) => setPassword(e.target.value)}/>
                     </div>
+                    {errorText && <p>{errorText}</p>}
                     <div className='auth_btn'>
-                    <button className='sh_bnt_style btn_radius' onClick={() => handleLogin()}>LOG IN</button>
+                        <button className='sh_bnt_style btn_radius' onClick={() => handleLogin()} disabled={loading}>LOG
+                            IN
+                        </button>
                     </div>
                 </div>
             </div>

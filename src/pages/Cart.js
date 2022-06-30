@@ -1,6 +1,38 @@
 import product from "../content/product1.jpg";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { Api } from "../api";
+import { Rings } from "react-loader-spinner";
 
 export const Cart = () => {
+    const [cart, setCart] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
+
+    useEffect(() => {
+        getCard()
+    }, [])
+
+    async function getCard() {
+        console.log('useEffect');
+        try {
+            setIsLoading(true)
+            const { data } = await Api.cart.getCart()
+            setCart(data)
+            setIsLoading(false)
+        } catch (error) {
+            toast(error)
+            setIsLoading(false)
+        }
+    }
+
+    if (isLoading) {
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Rings color="#00BFFF" height={80} width={80}/>
+            </div>
+        )
+    }
+
     return (
         <>
             <div>

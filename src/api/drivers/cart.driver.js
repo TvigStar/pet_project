@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-export const auth = {
-    signIn: ({ email, password }) => {
-        return axios.post('http://localhost:5001/auth/signin', { email, password })
+export const cart = {
+    getCart: () => {
+        return axios.get('http://localhost:5001/cart/proceed')
     },
 
     // refreshToken: (refreshToken) => {
