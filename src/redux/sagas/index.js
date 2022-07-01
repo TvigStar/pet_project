@@ -1,7 +1,6 @@
-import { all, call, takeLatest } from 'redux-saga/effects'
+import { all, call } from 'redux-saga/effects'
 
-import { authSagas } from "./auth.saga";
-
+import {authSagas} from "./auth.saga";
 
 function* helloSaga() {
     console.log('hello saga')

@@ -2,6 +2,7 @@ import background from '../content/auth.svg'
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import {SIGN_IN_REQUEST} from "../redux/actions/actionType";
 
 export const Login = () => {
     const dispatch = useDispatch()
@@ -15,7 +16,7 @@ export const Login = () => {
     } = useSelector(({ auth }) => auth);
 
     const handleLogin = () => {
-        dispatch({ type: "SIGN_IN_REQUEST", payload: { email, password } })
+        dispatch({ type: SIGN_IN_REQUEST, payload: { email, password } })
     }
 
     if (loggedIn) {
