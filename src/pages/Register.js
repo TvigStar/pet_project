@@ -37,15 +37,22 @@ export const Register = () => {
                 <div>
                     <div className='auth_form_input'>
                         <span className='auth_font_2'>name</span>
-                        <input className='auth_input' defaultValue={name} onBlur={(e) => setName(e.target.value)}/>
+                        <input className='auth_input' defaultValue={name}
+                               onBlur={(e) => setName(e.target.value)}/>
                     </div>
                     <div className='auth_form_input'>
                         <span className='auth_font_2'>email</span>
-                        <input className='auth_input' defaultValue={email} onBlur={(e) => setEmail(e.target.value)}/>
+                        <input className='auth_input'
+                               type='email'
+                               pattern=".+@globex\.com"
+                               defaultValue={email}
+                               onBlur={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div className='auth_form_input'>
                         <span className='auth_font_2'>password</span>
-                        <input className='auth_input' defaultValue={password}
+                        <input className='auth_input'
+                               type="password"
+                               defaultValue={password}
                                onBlur={(e) => setPassword(e.target.value)}/>
                     </div>
                     <div className='auth_btn'>

@@ -103,6 +103,7 @@
     color: #FFFFFF;
 }
 
+
 .main_p_text {
     position: absolute;
     width: 617px;
@@ -160,6 +161,9 @@
 
     background: #000000;
     border-radius: 40px;
+}
+.shop_button:focus{
+    background: #232329;
 }
 
 /*TeamPage*/
