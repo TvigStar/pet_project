@@ -1,4 +1,4 @@
-import product from '../content/product1.jpg'
+import product_1 from '../content/product1.jpg'
 import {useEffect, useState} from "react";
 import {ProductCreate} from "../components";
 import {Api} from "../api";
@@ -17,7 +17,7 @@ export const Shop = () => {
     }, [])
 
     console.log(data)
-    const product = data.map( value => {
+    const product = data.map(value => {
 
     })
     console.log(product)
@@ -35,27 +35,44 @@ export const Shop = () => {
         )
     }
     return (
-        <div className='container'>
-            <div>
+        <>
+            <div className>
                 <button className='sh_bnt_style' onClick={handleNewProduct}> create product</button>
             </div>
 
-            {data.map(value => (
+            <div className='shop_container'>
+
                 <div className='product_main'>
                     <div className='product_up'>
-                        {/*<img src={product} alt={product}/>*/}
+                        <img src={product_1} alt={product_1}/>
                     </div>
                     <div className='product_down'>
-                        <span>Title: {value.title}</span>
+                        <span>Title: Title</span>
                         <br/>
-                        <span>Price: {value.price}</span>
+                        <span>Price: price</span>
                     </div>
                     <div>
                         <button> buy</button>
                     </div>
                 </div>
-            ))}
 
-        </div>
+                {data.map(value => (
+                    <div className='product_main'>
+                        <div className='product_up'>
+                            {/*<img src={product} alt={product}/>*/}
+                        </div>
+                        <div className='product_down'>
+                            <span>Title: {value.title}</span>
+                            <br/>
+                            <span>Price: {value.price}</span>
+                        </div>
+                        <div>
+                            <button> buy</button>
+                        </div>
+                    </div>
+                ))}
+
+            </div>
+        </>
     )
 }

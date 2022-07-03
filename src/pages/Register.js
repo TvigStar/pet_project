@@ -2,6 +2,7 @@ import {useState} from 'react'
 
 import background from '../content/auth.svg'
 import {Api} from "../api";
+import {NavLink} from "react-router-dom";
 
 export const Register = () => {
     const [email, setEmail] = useState('')
@@ -52,6 +53,10 @@ export const Register = () => {
                                 onClick={() => handleRegister()}
                         >REGISTER IN
                         </button>
+                    </div>
+                    <div className='if_login'>
+                        Already have account?
+                        <NavLink to='/login' className='nav_link_login' >LOGIN</NavLink>
                     </div>
                 </div>
             </div>
