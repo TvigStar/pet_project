@@ -16,12 +16,6 @@ export const Shop = () => {
         fetchProducst()
     }, [])
 
-    console.log(data)
-    const product = data.map(value => {
-
-    })
-    console.log(product)
-
     const [newProduct, setNewProduct] = useState(false)
     const handleNewProduct = () => {
         setNewProduct(true)
