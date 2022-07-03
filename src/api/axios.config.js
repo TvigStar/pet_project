@@ -45,8 +45,6 @@ axios.interceptors.response.use(
             // }
         }
 
-        document.location.href = 'http://localhost:3000/login'
-
-        // return Promise.reject(error);
+        return Promise.reject(error);
     }
 );

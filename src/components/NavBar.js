@@ -2,6 +2,7 @@ import {NavLink} from "react-router-dom";
 import profileIcon from '../content/search/profile/profile-simple-svgrepo-com 1profile_1.svg';
 import searchIcon from '../content/search/search/prodile/search-svgrepo-com 1search_01.svg';
 import cartIcon from '../content/search/search/prodile/shopping-cart-svgrepo-com 1cart_01.svg'
+import userLogin from '../content/man-user-svgrepo-com.svg'
 
 export const NavBar = () => {
     return (

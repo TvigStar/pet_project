@@ -2,6 +2,7 @@ import background from '../content/auth.svg'
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import {SIGN_IN_REQUEST} from "../redux/actions/actionType";
 
 export const Login = () => {
     const dispatch = useDispatch()
@@ -15,7 +16,7 @@ export const Login = () => {
     } = useSelector(({ auth }) => auth);
 
     const handleLogin = () => {
-        dispatch({ type: "SIGN_IN_REQUEST", payload: { email, password } })
+        dispatch({ type: SIGN_IN_REQUEST, payload: { email, password } })
     }
 
     if (loggedIn) {
@@ -33,16 +34,22 @@ export const Login = () => {
                 <div>
                     <div className='auth_form_input'>
                         <span className='auth_font_2'>email</span>
-                        <input className='auth_input' defaultValue={email} onBlur={(e) => setEmail(e.target.value)}/>
+                        <input className='auth_input' type='email'
+                               pattern=".+@globex\.com"
+                               defaultValue={email}
+                               onBlur={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div className='auth_form_input'>
                         <span className='auth_font_2'>password</span>
-                        <input className='auth_input' defaultValue={password}
+                        <input className='auth_input'
+                               type="password"
+                               defaultValue={password}
                                onBlur={(e) => setPassword(e.target.value)}/>
                     </div>
                     {errorText && <p>{errorText}</p>}
                     <div className='auth_btn'>
-                        <button className='sh_bnt_style btn_radius' onClick={() => handleLogin()} disabled={loading}>LOG
+                        <button className='sh_bnt_style btn_radius'
+                                onClick={() => handleLogin()} disabled={loading}>LOG
                             IN
                         </button>
                     </div>

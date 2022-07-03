@@ -4,8 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import { NavBar } from "./components";
-import { Team, Shop, Main, Register, Cart } from "./pages";
-import { Login } from "./pages/Login";
+import { Team, Shop, Main, Register, Cart ,Login} from "./pages";
 
 
 const ProtectedRoute = ({ children }) => {

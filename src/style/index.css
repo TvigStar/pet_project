@@ -103,6 +103,7 @@
     color: #FFFFFF;
 }
 
+
 .main_p_text {
     position: absolute;
     width: 617px;
@@ -130,6 +131,7 @@
     justify-content: space-evenly;
 }
 .sh_bnt_style{
+    margin-left: 5%;
     width: 259px;
     height: 80px;
     background: #000000;
@@ -141,8 +143,16 @@
     color: #FFFFFF;
 }
 
+.shop_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 
 .shop_button {
+
     position: absolute;
     width: 404px;
     height: 106px;
@@ -151,6 +161,9 @@
 
     background: #000000;
     border-radius: 40px;
+}
+.shop_button:focus{
+    background: #232329;
 }
 
 /*TeamPage*/
@@ -225,10 +238,26 @@
 .auth_btn{
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 .btn_radius{
     border-radius: 25px;
+}
+
+.if_login{
+    display: flex;
+    justify-content: center;
+    margin-left: 5%;
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 42px;
+    color: #000000;
+}
+.nav_link_login{
+    color: #000000;
+    text-decoration: none;
 }
 
 /*CART*/
