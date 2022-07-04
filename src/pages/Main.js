@@ -14,7 +14,6 @@ export const Main = () => {
             <button className='shop_button' title='do it' onClick={navigateToShop}>
                 <span className='btn_text'> new collection</span>
             </button>
-
         </div>
     )
 }

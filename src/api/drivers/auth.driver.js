@@ -5,7 +5,7 @@ export const auth = {
         return axios.post('http://localhost:5001/auth/signin', { email, password })
     },
 
-    // refreshToken: (refreshToken) => {
-    //     return axios.post('http://localhost:5001/auth/refresh', { refreshToken })
-    // }
+    refreshToken: (refreshToken) => {
+        return axios.post('http://localhost:5001/auth/refresh', { refreshToken })
+    }
 }

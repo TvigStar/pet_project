@@ -5,12 +5,19 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import { NavBar } from "./components";
 import { Team, Shop, Main, Register, Cart ,Login} from "./pages";
+import {Api} from "./api";
+import {useDispatch, useSelector} from "react-redux";
+import {SIGN_IN_SUCCESS} from "./redux/actions/actionType";
+import {useEffect, useState} from "react";
+import {Rings} from "react-loader-spinner";
 
 
 const ProtectedRoute = ({ children }) => {
-    const accessToken = localStorage.getItem('access_token')
+    const {
+        loggedIn
+    } = useSelector(({ auth }) => auth);
 
-    if (!accessToken) {
+    if (!loggedIn) {
         return <Navigate to="/login" replace/>;
     }
 
@@ -18,13 +25,36 @@ const ProtectedRoute = ({ children }) => {
 };
 
 function App() {
-    // const checkIfLogged = () => {
-    //     const refreshToken = localStorage.getItem('refresh_token')
-    //
-    //     if(refreshToken) {
-    //         const {data} =
-    //     }
-    // }
+    const dispatch = useDispatch()
+    const [loading, setLoading] = useState(true)
+
+    const checkIfLogged = async () => {
+        try{  const refreshToken = localStorage.getItem('refresh_token')
+            if(refreshToken) {
+                const {data} = await Api.auth.refreshToken(refreshToken)
+
+                localStorage.setItem('access_token', data.access_token)
+                localStorage.setItem('refresh_token', data.refresh_token)
+                dispatch({type: SIGN_IN_SUCCESS})
+
+            }} catch (err){
+            console.log(err)
+        }
+        setLoading(false)
+    }
+
+    useEffect( () => {
+            checkIfLogged()
+        }
+    ,[])
+
+    if (loading) {
+        return (
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+                <Rings color="#00BFFF" height={80} width={80}/>
+            </div>
+        )
+    }
 
     return (
         <>

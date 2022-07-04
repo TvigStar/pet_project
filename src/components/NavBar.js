@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import {NavLink} from "react-router-dom";
 import profileIcon from '../content/search/profile/profile-simple-svgrepo-com 1profile_1.svg';
 import searchIcon from '../content/search/search/prodile/search-svgrepo-com 1search_01.svg';
@@ -5,6 +6,8 @@ import cartIcon from '../content/search/search/prodile/shopping-cart-svgrepo-com
 import userLogin from '../content/man-user-svgrepo-com.svg'
 
 export const NavBar = () => {
+    const {loggedIn} = useSelector(({auth}) => auth )
+
     return (
         <div className='nav_container'>
             <div className='logo'>
@@ -29,10 +32,12 @@ export const NavBar = () => {
 
             <div className='nav_bar_icons_d'>
                 <ul className='ul mt_10'>
-                    <li className='profile'>
+
+                     <li className='profile'>
                         <NavLink href="#" to='/register'>
-                            <img src={profileIcon} alt={profileIcon}/>
-                        </NavLink></li>
+                            <img src={loggedIn ? userLogin : profileIcon} alt={profileIcon}/>
+                        </NavLink>
+                    </li>
 
                     <li className='search_and_cart'>
                         <img src={searchIcon} alt={searchIcon}/>

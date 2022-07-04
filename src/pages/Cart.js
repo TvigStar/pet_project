@@ -1,33 +1,30 @@
 import product from "../content/product1.jpg";
-import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import { Api } from "../api";
-import { Rings } from "react-loader-spinner";
+import {useEffect, useState} from "react";
+import {toast} from "react-toastify";
+import {Api} from "../api";
+import {Rings} from "react-loader-spinner";
+import {useDispatch, useSelector} from "react-redux";
+import {CART_REQUEST} from "../redux/actions/actionType";
 
 export const Cart = () => {
-    const [cart, setCart] = useState(null)
-    const [isLoading, setIsLoading] = useState(false)
+    const {
+        cartLoading,
+        cartFetched,
+        cart
+    } = useSelector(({cart}) => cart)
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        getCard()
+        if (!cartFetched && !cartLoading){
+            dispatch({type: CART_REQUEST})
+        }
     }, [])
 
-    async function getCard() {
-        console.log('useEffect');
-        try {
-            setIsLoading(true)
-            const { data } = await Api.cart.getCart()
-            setCart(data)
-            setIsLoading(false)
-        } catch (error) {
-            toast(error)
-            setIsLoading(false)
-        }
-    }
 
-    if (isLoading) {
+
+    if (cartLoading || !cartFetched) {
         return (
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
                 <Rings color="#00BFFF" height={80} width={80}/>
             </div>
         )
