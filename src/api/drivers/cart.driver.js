@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const cart = {
     getCart: () => {
-        return axios.get('http://localhost:5001/cart/proceed')
+        return axios.get('http://localhost:5001/cart/')
     },
 
     // refreshToken: (refreshToken) => {

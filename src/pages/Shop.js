@@ -7,10 +7,10 @@ import {CART_REQUEST_SUCCESS} from "../redux/actions/actionType";
 
 const Product = ({productValue: value, handleBuy}) => {
     const [count, setCount] = useState(1)
-    return(
+    return (
         <div className='product_main'>
             <div className='product_up'>
-                {/*<img src={product} alt={product}/>*/}
+                <img src={product_1} alt='product'/>
             </div>
             <div className='product_down'>
                 <span>Title: {value.title}</span>
@@ -19,7 +19,12 @@ const Product = ({productValue: value, handleBuy}) => {
                 <br/>
                 <span>Count: {value.stockCount}</span>
                 <br/>
-                <input type='range' max={value.count} min={1} value={value.stockCount} onChange={e => setCount(e.target.value)}/>
+                <input type='range'
+                       max={value.stockCount}
+                       min='1'
+                       value={count}
+                       onChange={e => setCount(e.target.value)}/>
+                <output>{count}</output>
             </div>
             <div>
                 <button onClick={() => handleBuy(value._id, count)}> buy</button>
@@ -33,7 +38,6 @@ export const Shop = () => {
     const fetchProducst = async () => {
         const fetchdata = await Api.product.getAll()
         setData(fetchdata.data)
-        console.log(fetchdata)
     }
 
     useEffect(() => {
@@ -46,11 +50,11 @@ export const Shop = () => {
     }
 
     const handleBuy = async (productId, count) => {
-        try{
-           const {data} = await Api.cart.addToCart({productId, count})
+        try {
+            const {data} = await Api.cart.addToCart({productId, count})
             dispatch({type: CART_REQUEST_SUCCESS, payload: data})
             await fetchProducst()
-        } catch (err){
+        } catch (err) {
             console.log(err)
         }
     }
@@ -64,28 +68,13 @@ export const Shop = () => {
     }
     return (
         <>
-            <div className>
+            <div >
                 <button className='sh_bnt_style' onClick={handleNewProduct}> create product</button>
             </div>
 
             <div className='shop_container'>
-
-                <div className='product_main'>
-                    <div className='product_up'>
-                        <img src={product_1} alt={product_1}/>
-                    </div>
-                    <div className='product_down'>
-                        <span>Title: Title</span>
-                        <br/>
-                        <span>Price: price</span>
-                    </div>
-                    <div>
-                        <button> buy</button>
-                    </div>
-                </div>
-
                 {data.map(value => (
-                  <Product productValue={value}  handleBuy={handleBuy}/>
+                    <Product productValue={value} handleBuy={handleBuy}/>
                 ))}
 
             </div>

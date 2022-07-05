@@ -8,7 +8,7 @@ export const Main = () => {
     };
 
     return (
-        <div className='container'>
+        <div className='container-fluid'>
             <img src={mainPic} alt={mainPic}/>
             <span className='main_p_text'>RETURN OF THE STYLE</span>
             <button className='shop_button' title='do it' onClick={navigateToShop}>

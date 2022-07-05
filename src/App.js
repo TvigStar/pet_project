@@ -58,13 +58,12 @@ function App() {
 
     return (
         <>
+            <div className='container-fluid'>
             <BrowserRouter>
                 <NavBar/>
                 <Routes>
                     <Route exact path="/" element={
-                        <ProtectedRoute>
-                            <Main/>
-                        </ProtectedRoute>}/>
+                     <Main/>}/>
                     <Route path="/shop" element={
                         <ProtectedRoute>
                             <Shop/>
@@ -72,7 +71,10 @@ function App() {
                     <Route path="/team" element={<Team/>}/>
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/login" element={<Login/>}/>
-                    <Route path="/cart" element={<Cart/>}/>
+                    <Route path="/cart" element={
+                        <ProtectedRoute>
+                        <Cart/>
+                        </ProtectedRoute>}/>
                 </Routes>
             </BrowserRouter>
             <ToastContainer
@@ -86,6 +88,7 @@ function App() {
                 theme="dark"
                 transition={Flip}
             />
+            </div>
         </>
     );
 }

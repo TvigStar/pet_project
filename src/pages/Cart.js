@@ -1,10 +1,9 @@
 import product from "../content/product1.jpg";
-import {useEffect, useState} from "react";
-import {toast} from "react-toastify";
-import {Api} from "../api";
+import {useEffect} from "react";
 import {Rings} from "react-loader-spinner";
 import {useDispatch, useSelector} from "react-redux";
 import {CART_REQUEST} from "../redux/actions/actionType";
+
 
 export const Cart = () => {
     const {
@@ -15,12 +14,12 @@ export const Cart = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if (!cartFetched && !cartLoading){
+        if (!cartFetched && !cartLoading) {
             dispatch({type: CART_REQUEST})
         }
     }, [])
 
-
+    console.log(cart.products);
 
     if (cartLoading || !cartFetched) {
         return (
@@ -39,11 +38,12 @@ export const Cart = () => {
                     <span className='max_w'> SUBTOTAL</span>
                 </div>
                 <hr/>
+
                 <div className='cart_top'>
                     <div className='cart_1  max_w'>
                         <div><img src={product} alt={product}/></div>
                         <div className='max_w'>
-                            <span className='cart_font_2'>TITLE</span>
+                            <span className='cart_font_2'>title</span>
                             <hr/>
                             <span className='cart_font_3'>CATEGORY</span>
                         </div>
@@ -51,7 +51,26 @@ export const Cart = () => {
                     <span className='max_w cart_font_4'> QTY</span>
                     <span className='max_w cart_font_4'> SUBTOTAL</span>
                 </div>
+
+
+                {cart.products.map(value => (
+                    <div className='cart_top'>
+                        <div className='cart_1  max_w'>
+                            <div><img src={product} alt={product}/></div>
+                            <div className='max_w'>
+                                <span className='cart_font_2'>{value.productId.title}</span>
+                                <hr/>
+                                <span className='cart_font_3'>{value.productId.price}</span>
+                            </div>
+                        </div>
+                        <span className='max_w cart_font_4'> {value.count}</span>
+                        <span className='max_w cart_font_4'> {value.count * value.price}</span>
+                    </div>
+                ))}
+
                 <hr/>
+
+
                 <div className='buy_div'>
                     <div>
                         <div className='buy_div_1'>
