@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import {SIGN_IN_REQUEST} from "../redux/actions/actionType";
+import {NavLink} from "react-router-dom";
 
 export const Login = () => {
     const dispatch = useDispatch()
@@ -47,6 +48,10 @@ export const Login = () => {
                                onBlur={(e) => setPassword(e.target.value)}/>
                     </div>
                     {errorText && <p>{errorText}</p>}
+                    <div className='if_register'>
+                        Don't have account?
+                        <NavLink to='/register' className='nav_link_login' >REGISTER</NavLink>
+                    </div>
                     <div className='auth_btn'>
                         <button className='sh_bnt_style btn_radius'
                                 onClick={() => handleLogin()} disabled={loading}>LOG

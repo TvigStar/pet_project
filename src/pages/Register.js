@@ -23,7 +23,10 @@ export const Register = () => {
 
     if (regSuc) {
         return (
-            <h1>wellcome</h1>
+            <div className='reg_confirm_msg'>
+                Wellcome on our web-site.
+                Check your email to confirm a registration
+            </div>
         )
     }
     return (

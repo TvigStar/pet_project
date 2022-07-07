@@ -1,8 +1,9 @@
 import product from "../content/product1.jpg";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {Rings} from "react-loader-spinner";
 import {useDispatch, useSelector} from "react-redux";
 import {CART_REQUEST} from "../redux/actions/actionType";
+import {Checkout} from "../components/Checkout";
 
 
 export const Cart = () => {
@@ -12,20 +13,30 @@ export const Cart = () => {
         cart
     } = useSelector(({cart}) => cart)
     const dispatch = useDispatch()
-
     useEffect(() => {
         if (!cartFetched && !cartLoading) {
             dispatch({type: CART_REQUEST})
         }
     }, [])
-
-    console.log(cart.products);
+    const cartId = cart._id
+    const [checkoutStatus, setCheckoutStatus] = useState(false)
+    const handleCheckout = () => {
+        setCheckoutStatus(true)
+    }
 
     if (cartLoading || !cartFetched) {
         return (
             <div style={{display: 'flex', justifyContent: 'center'}}>
                 <Rings color="#00BFFF" height={80} width={80}/>
             </div>
+        )
+    }
+
+    if (checkoutStatus){
+        return (
+            <Checkout cartId={cartId} handleClose ={() => {
+                setCheckoutStatus(false)
+            }} />
         )
     }
 
@@ -38,20 +49,6 @@ export const Cart = () => {
                     <span className='max_w'> SUBTOTAL</span>
                 </div>
                 <hr/>
-
-                <div className='cart_top'>
-                    <div className='cart_1  max_w'>
-                        <div><img src={product} alt={product}/></div>
-                        <div className='max_w'>
-                            <span className='cart_font_2'>title</span>
-                            <hr/>
-                            <span className='cart_font_3'>CATEGORY</span>
-                        </div>
-                    </div>
-                    <span className='max_w cart_font_4'> QTY</span>
-                    <span className='max_w cart_font_4'> SUBTOTAL</span>
-                </div>
-
 
                 {cart.products.map(value => (
                     <div className='cart_top'>
@@ -86,7 +83,7 @@ export const Cart = () => {
                             <span className="cart_font_6"> NUMBER</span>
                         </div>
                         <div className='buy_btn '>
-                            <button className='bnt_style'>PROCEED TO CHECKOUT</button>
+                            <button className='bnt_style' onClick={handleCheckout}>PROCEED TO CHECKOUT</button>
                         </div>
                     </div>
                 </div>

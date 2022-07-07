@@ -122,13 +122,14 @@
 /*//PRODUCT*/
 /*150 × 209 pixels*/
 .product_main {
-    height: 300px;
-    width: 250px;
+    max-height: 300px;
+    max-width: 250px;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
     flex-direction: column;
-    justify-content: space-evenly;
+    margin: 2%;
+    justify-content: flex-end;
 }
 .sh_bnt_style{
     margin-left: 5%;
@@ -239,7 +240,7 @@
 .auth_btn{
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 3%;
 }
 .btn_radius{
     border-radius: 25px;
@@ -255,6 +256,30 @@
     font-size: 18px;
     line-height: 42px;
     color: #000000;
+}
+.if_register{
+    display: flex;
+    justify-content: center;
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 42px;
+    color: #000000;
+}
+
+.reg_confirm_msg{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    font-family: 'Bakbak One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 42px;
+    color: #000000;
+    margin-top: 10%;
 }
 .nav_link_login{
     color: #000000;

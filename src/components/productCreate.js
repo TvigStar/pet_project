@@ -1,19 +1,18 @@
 import {useState} from "react";
 import {toast} from "react-toastify";
-import {useNavigate} from "react-router";
 import {Api} from "../api";
-import {Shop} from "../pages";
+
 
 export const ProductCreate = (props) => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [type, setType] = useState('')
-    const [category, setCategory] = useState('')
-    const [price, setPrice] = useState('')
+    const [stockCount, setStockCount] = useState(0)
+    const [price, setPrice] = useState(0)
 
     const handleCreator = async () => {
         try {
-            await Api.product.create({title, category, type, description, price})
+            await Api.product.create({title, stockCount, type, description, price})
             props.handleClose()
         }catch (err){
             toast(err)
@@ -44,10 +43,10 @@ export const ProductCreate = (props) => {
                                onBlur={(e) => setType(e.target.value)} />
                     </div>
                     <div className='auth_form_input'>
-                        <span className='auth_font_2'>category</span>
+                        <span className='auth_font_2'>stock count</span>
                         <input className='auth_input'
-                               defaultValue={category}
-                               onBlur={(e) => setCategory(e.target.value)}/>
+                               defaultValue={stockCount}
+                               onBlur={(e) => setStockCount(e.target.value)}/>
                     </div>
                     <div className='auth_form_input'>
                         <span className='auth_font_2'>price</span>
