@@ -1,4 +1,5 @@
 import {
+    CART_DELETE,
     CART_REQUEST,
     CART_REQUEST_ERROR,
     CART_REQUEST_SUCCESS
@@ -21,6 +22,9 @@ export const cart = function (state = initialState, action) {
         }
         case CART_REQUEST_ERROR: {
             return {...state, cartLoading: false, cartFetched: true, cart: null}
+        }
+        case CART_DELETE: {
+            return {...state, cart: null}
         }
         default:
             return state

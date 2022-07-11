@@ -18,7 +18,7 @@ export const Cart = () => {
             dispatch({type: CART_REQUEST})
         }
     }, [])
-    const cartId = cart._id
+    const cartId = cart?._id
     const [checkoutStatus, setCheckoutStatus] = useState(false)
     const handleCheckout = () => {
         setCheckoutStatus(true)
@@ -40,6 +40,7 @@ export const Cart = () => {
         )
     }
 
+
     return (
         <>
             <div>
@@ -50,20 +51,23 @@ export const Cart = () => {
                 </div>
                 <hr/>
 
-                {cart.products.map(value => (
-                    <div className='cart_top'>
-                        <div className='cart_1  max_w'>
-                            <div><img src={product} alt={product}/></div>
-                            <div className='max_w'>
-                                <span className='cart_font_2'>{value.productId.title}</span>
-                                <hr/>
-                                <span className='cart_font_3'>{value.productId.price}</span>
+                {cart?       cart.products.map(value => (
+                        <div className='cart_top'>
+                            <div className='cart_1  max_w'>
+                                <div><img src={product} alt={product}/></div>
+                                <div className='max_w'>
+                                    <span className='cart_font_2'>{value.productId.title}</span>
+                                    <hr/>
+                                    <span className='cart_font_3'>{value.productId.price}</span>
+                                </div>
                             </div>
+                            <span className='max_w cart_font_4'> {value.count}</span>
+                            <span className='max_w cart_font_4'> {value.count * value.price}</span>
                         </div>
-                        <span className='max_w cart_font_4'> {value.count}</span>
-                        <span className='max_w cart_font_4'> {value.count * value.price}</span>
-                    </div>
-                ))}
+                    ))
+                    :
+                    <div>empty cart</div>
+                    }
 
                 <hr/>
 

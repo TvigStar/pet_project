@@ -1,10 +1,20 @@
 import {Api} from "../api";
+import {useDispatch} from "react-redux";
+import {CART_DELETE} from "../redux/actions/actionType";
 
 export const Checkout = (props) => {
+    const dispatch = useDispatch()
     const handleBuy = async (cartId) => {
-        cartId = props.cartId
-        await Api.cart.deleteCart({cartId})
-        props.handleClose()
+        try{
+            cartId = props.cartId
+            await Api.cart.deleteCart({cartId})
+            props.handleClose()
+            dispatch({type:CART_DELETE})
+        }catch (err){
+            console.log(err);
+        }
+
+
     }
     return (
         <div className='auth_form'>
