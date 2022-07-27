@@ -20,14 +20,15 @@ const Product = ({productValue: value, handleBuy}) => {
                 <span>Count: {value.stockCount}</span>
                 <br/>
                 <input type='range'
+                       className='range'
                        max={value.stockCount}
                        min='1'
                        value={count}
                        onChange={e => setCount(e.target.value)}/>
-                <output>{count}</output>
+                <output className='rangeValue'>{count}</output>
             </div>
             <div>
-                <button onClick={() => handleBuy(value._id, count)}> buy</button>
+                <button className='btn_to_buy' onClick={() => handleBuy(value._id, +count)}> buy</button>
             </div>
         </div>
     )
@@ -68,7 +69,7 @@ export const Shop = () => {
     }
     return (
         <>
-            <div >
+            <div>
                 <button className='sh_bnt_style' onClick={handleNewProduct}> create product</button>
             </div>
 

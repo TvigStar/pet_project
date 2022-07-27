@@ -131,7 +131,8 @@
     margin: 2%;
     justify-content: flex-end;
 }
-.sh_bnt_style{
+
+.sh_bnt_style {
     margin-left: 5%;
     width: 259px;
     height: 80px;
@@ -144,12 +145,12 @@
     color: #FFFFFF;
 }
 
-.shop_container{
+.shop_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 3%;
+    margin-top: 6%;
 }
 
 
@@ -164,14 +165,107 @@
     background: #000000;
     border-radius: 40px;
 }
-.shop_button:focus{
+
+.shop_button:focus {
     background: #232329;
 }
 
+.btn_to_buy {
+    appearance: none;
+    background-color: #000000;
+    border: 2px solid #1A1A1A;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+}
+
+.btn_to_buy:disabled {
+    pointer-events: none;
+}
+
+.btn_to_buy:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.btn_to_buy:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.rangeValue {
+    position: relative;
+    display: block;
+    text-align: center;
+    color: #000000;
+}
+
+.range {
+    -webkit-appearance: none;
+    background: #111;
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+}
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #00fd0a;
+    cursor: pointer;
+    border: 4px solid #333;
+    box-shadow: -407px 0 0 400px #00fd0a;
+}
+
+
+.number{
+    margin:100px;
+}
+.minus, .plus{
+    background:#f2f2f2;
+    border-radius:4px;
+    padding:8px 5px 8px 5px;
+    border:1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+.cart-qv {
+    text-align: center;
+    font-size: 26px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
 /*TeamPage*/
-.c_container{
+.c_container {
     width: 100%;
 }
+
 .team_text_box {
     position: absolute;
     width: 750px;
@@ -198,7 +292,7 @@
     min-height: 100%;
 }
 
-.auth_form{
+.auth_form {
     position: absolute;
     width: 607px;
     height: 569px;
@@ -209,18 +303,21 @@
     align-items: center;
     justify-content: center;
 }
-.auth_input{
+
+.auth_input {
     width: 558px;
     height: 64px;
     background: #D9D9D9;
     border-radius: 25px;
 }
-.auth_form_input{
+
+.auth_form_input {
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
-.auth_font_1{
+
+.auth_font_1 {
     font-family: 'Bakbak One', cursive;
     font-style: normal;
     font-weight: 400;
@@ -228,7 +325,8 @@
     line-height: 90px;
     color: #000000;
 }
-.auth_font_2{
+
+.auth_font_2 {
     font-family: 'Bakbak One', cursive;
     font-style: normal;
     font-weight: 400;
@@ -237,16 +335,17 @@
     color: #000000;
 }
 
-.auth_btn{
+.auth_btn {
     display: flex;
     justify-content: center;
     margin-top: 3%;
 }
-.btn_radius{
+
+.btn_radius {
     border-radius: 25px;
 }
 
-.if_login{
+.if_login {
     display: flex;
     justify-content: center;
     margin-left: 5%;
@@ -257,7 +356,8 @@
     line-height: 42px;
     color: #000000;
 }
-.if_register{
+
+.if_register {
     display: flex;
     justify-content: center;
     font-family: 'Bakbak One', cursive;
@@ -268,7 +368,7 @@
     color: #000000;
 }
 
-.reg_confirm_msg{
+.reg_confirm_msg {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -281,7 +381,8 @@
     color: #000000;
     margin-top: 10%;
 }
-.nav_link_login{
+
+.nav_link_login {
     color: #000000;
     text-decoration: none;
 }
@@ -300,7 +401,8 @@
 .max_w {
     width: 200px;
 }
-.cart_font_1{
+
+.cart_font_1 {
     font-family: 'Bakbak One', cursive;
     font-style: normal;
     font-weight: 400;
@@ -308,7 +410,8 @@
     line-height: 42px;
     color: #000000;
 }
-.cart_font_2{
+
+.cart_font_2 {
     font-family: 'Bakbak One', cursive;
     font-style: normal;
     font-weight: 400;
@@ -316,7 +419,8 @@
     line-height: 56px;
     color: #000000;
 }
-.cart_font_3{
+
+.cart_font_3 {
     font-family: 'Bakbak One', cursive;
     font-style: normal;
     font-weight: 400;
@@ -324,7 +428,8 @@
     line-height: 42px;
     color: #000000;
 }
-.cart_font_4{
+
+.cart_font_4 {
     font-family: 'Bakbak One', cursive;
     font-style: normal;
     font-weight: 400;
@@ -332,7 +437,8 @@
     line-height: 42px;
     color: rgba(0, 0, 0, 0.5);
 }
-.cart_font_5{
+
+.cart_font_5 {
     font-family: 'Bakbak One', cursive;
     font-style: normal;
     font-weight: 400;
@@ -340,7 +446,8 @@
     line-height: 35px;
     color: #000000;
 }
-.cart_font_6{
+
+.cart_font_6 {
     font-family: 'Bakbak One', cursive;
     font-style: normal;
     font-weight: 400;
@@ -348,11 +455,12 @@
     line-height: 35px;
     color: rgba(0, 0, 0, 0.5);
 }
+
 .buy_div {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    margin-right:10%;
+    margin-right: 10%;
 }
 
 .buy_div_1 {
@@ -360,11 +468,12 @@
     justify-content: space-between;
 }
 
-.buy_btn{
+.buy_btn {
     display: flex;
     flex-direction: column;
 }
-.bnt_style{
+
+.bnt_style {
     width: 440px;
     height: 80px;
     background: #000000;
@@ -374,4 +483,10 @@
     font-size: 36px;
     line-height: 50px;
     color: #FFFFFF;
+}
+
+.cart-sum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

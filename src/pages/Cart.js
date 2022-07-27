@@ -2,26 +2,51 @@ import product from "../content/product1.jpg";
 import {useEffect, useState} from "react";
 import {Rings} from "react-loader-spinner";
 import {useDispatch, useSelector} from "react-redux";
-import {CART_REQUEST} from "../redux/actions/actionType";
+import {CART_REQUEST, CART_REQUEST_SUCCESS} from "../redux/actions/actionType";
 import {Checkout} from "../components/Checkout";
+import {Api} from "../api";
 
 
 export const Cart = () => {
+    const dispatch = useDispatch()
     const {
         cartLoading,
         cartFetched,
         cart
     } = useSelector(({cart}) => cart)
-    const dispatch = useDispatch()
+    const [checkoutStatus, setCheckoutStatus] = useState(false)
+    const [updateLoading, setUpdateLoading] = useState(false)
+    const cartId = cart?._id
+    const handleCheckout = () => {
+        setCheckoutStatus(true)
+    }
+
     useEffect(() => {
         if (!cartFetched && !cartLoading) {
             dispatch({type: CART_REQUEST})
         }
     }, [])
-    const cartId = cart?._id
-    const [checkoutStatus, setCheckoutStatus] = useState(false)
-    const handleCheckout = () => {
-        setCheckoutStatus(true)
+
+    const handleReduceCount = async (productId) => {
+        try {
+            setUpdateLoading(true)
+            const {data} = await Api.cart.deleteProductFromCart({productId, count: 1})
+            dispatch({type: CART_REQUEST_SUCCESS, payload: data})
+        } catch (err) {
+            console.log(err);
+        }
+        setUpdateLoading(false);
+    }
+
+    const handleIncreaseCount = async (productId) => {
+        try {
+            setUpdateLoading(true)
+            const {data} = await Api.cart.addToCart({productId, count: 1})
+            dispatch({type: CART_REQUEST_SUCCESS, payload: data})
+        } catch (err) {
+            console.log(err)
+        }
+        setUpdateLoading(false);
     }
 
     if (cartLoading || !cartFetched) {
@@ -32,11 +57,11 @@ export const Cart = () => {
         )
     }
 
-    if (checkoutStatus){
+    if (checkoutStatus) {
         return (
-            <Checkout cartId={cartId} handleClose ={() => {
+            <Checkout cartId={cartId} handleClose={() => {
                 setCheckoutStatus(false)
-            }} />
+            }}/>
         )
     }
 
@@ -51,8 +76,8 @@ export const Cart = () => {
                 </div>
                 <hr/>
 
-                {cart?       cart.products.map(value => (
-                        <div className='cart_top'>
+                {cart ? cart.products.map(value => (
+                        <div className='cart_top' key={value.productId._id}>
                             <div className='cart_1  max_w'>
                                 <div><img src={product} alt={product}/></div>
                                 <div className='max_w'>
@@ -61,13 +86,21 @@ export const Cart = () => {
                                     <span className='cart_font_3'>{value.productId.price}</span>
                                 </div>
                             </div>
-                            <span className='max_w cart_font_4'> {value.count}</span>
-                            <span className='max_w cart_font_4'> {value.count * value.price}</span>
+                            <div className="number">
+                                <button className="minus"
+                                        onClick={()=> handleReduceCount(value.productId._id)}
+                                        disabled={updateLoading}
+                                >-</button>
+                                <input className='cart-qv' type="text" value={value.count}/>
+                                <button className="plus"
+                                onClick={()=> handleIncreaseCount(value.productId._id)}>+</button>
+                            </div>
+                            <span className='max_w cart_font_4 cart-sum'> {value.count * value.price}</span>
                         </div>
                     ))
                     :
                     <div>empty cart</div>
-                    }
+                }
 
                 <hr/>
 
@@ -75,16 +108,8 @@ export const Cart = () => {
                 <div className='buy_div'>
                     <div>
                         <div className='buy_div_1'>
-                            <span className="cart_font_5"> SUBTOTAL: </span>
-                            <span className="cart_font_6"> NUMBER</span>
-                        </div>
-                        <div className='buy_div_1'>
-                            <span className="cart_font_5"> DISCOUNT: </span>
-                            <span className="cart_font_6"> NUMBER</span>
-                        </div>
-                        <div className='buy_div_1'>
                             <span className="cart_font_5"> ESTIMATED TOTAL: </span>
-                            <span className="cart_font_6"> NUMBER</span>
+                            <span className="cart_font_6"> {cart ? cart.sum : '00000'}</span>
                         </div>
                         <div className='buy_btn '>
                             <button className='bnt_style' onClick={handleCheckout}>PROCEED TO CHECKOUT</button>
